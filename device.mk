@@ -268,7 +268,9 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.1-service-qti
+    power.qcom \
+    android.hardware.power@1.0-impl \
+    android.hardware.power@1.0-service
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -323,6 +325,16 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
 
+# Gatekeeper 
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-service \
+
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-service
+	
 # Wifi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \

@@ -351,6 +351,9 @@ PRODUCT_PACKAGES += \
 # Wi-Fi Display
 PRODUCT_BOOT_JARS += \
     WfdCommon	
+
+# Properties
+-include $(LOCAL_PATH)/prop.mk
 	
 # Inherit vendor
 $(call inherit-product, vendor/GM/GM8_sprout/GM8_sprout-vendor.mk)

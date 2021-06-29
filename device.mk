@@ -14,6 +14,16 @@
 # limitations under the License.
 #
 
+PRODUCT_ENFORCE_RRO_TARGETS := \
+    framework-res
+
+# Screen density
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1440
+TARGET_SCREEN_WIDTH := 720
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -75,8 +85,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_profiles_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 	
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -123,16 +133,33 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     ueventd.qcom.rc
 
+PRODUCT_PACKAGES += \
+    move_time_data.sh \
+    move_wifi_data.sh \
+	qca6234-service.sh \
+	init.qti.qseecomd.sh \
+	init.qti.ims.sh \
+	init.qti.fm.sh \
+	init.qcom.wifi.sh \
+	init.qcom.syspart_fixup.sh \
+	init.qcom.sh \
+	init.qcom.sensors.sh \
+	init.qcom.sdio.sh \
+	init.qcom.efs.sync.sh \
+	init.qcom.post_boot.sh \
+	init.qcom.early_boot.sh \
+	init.qcom.crashdata.sh \
+	init.qcom.coex.sh \
+	init.qcom.class_core.sh \
+	init.mdm.sh \
+	init.lct.bootcheckend.sh \
+	init.lct.bootcheck.sh \
+	init.crda.sh \
+	init.class_main.sh
+	
 # Sensors
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
-
-# WiFi
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
-    $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/configs/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
-    $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf 
 
 # ANT
 PRODUCT_PACKAGES += \
@@ -269,7 +296,8 @@ PRODUCT_PACKAGES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.1-service-qti
-
+	power.qcom
+	
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
@@ -306,6 +334,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/7824900.sdhci/by-name/system
 $(call inherit-product, build/target/product/verity.mk)
 
+# USB HAL
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service
+
 # VNDK
 PRODUCT_PACKAGES += \
     vndk-sp
@@ -336,6 +368,14 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
+    $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
+	
 # Wi-Fi Display
 PRODUCT_BOOT_JARS += \
     WfdCommon	

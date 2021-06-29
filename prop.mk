@@ -19,11 +19,16 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
     persist.vendor.audio.hw.binder.size_kbyte=1024 \
     persist.vendor.audio.speaker.prot.enable=false \
     persist.vendor.bluetooth.modem_nv_support=true \
+    persist.vendor.btstack.enable.splita2dp=false \
     persist.vendor.qcomsysd.enabled=1 \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.rat_on=combine \
     persist.vendor.radio.sib16_support=1 \
+    DEVICE_PROVISIONED=1 \
+    persist.dbg.volte_avail_ovr=1 \
+    persist.dbg.vt_avail_ovr=1 \
+    persist.dbg.wfc_avail_ovr=1 \
     qemu.hw.mainkeys=0 \
     rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
     ro.af.client_heap_size_kbyte=7168 \
@@ -71,3 +76,25 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
     persist.service.debuggable=1 \
     persist.sys.usb.config=mtp,adb \
     sys.usb.configfs=0
+
+    # Bluetooth
+    PRODUCT_PROPERTY_OVERRIDES += \
+    bluetooth.hfp.client=1 \
+    qcom.bluetooth.soc=smd \
+    ro.bluetooth.hfp.ver=1.7 \
+    ro.qualcomm.bt.hci_transport=smd
+	
+	# Wifi
+    PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0
+	
+	# Camera
+    PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.camera.hal1.packagelist=com.skype.raider,com.google.android.talk \
+    persist.vendor.camera.display.umax=1920x1080 \
+    persist.vendor.camera.display.lmax=1280x720 \
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap \
+    persist.vendor.camera.isp.clock.optmz=0 \
+    persist.camera.depth.focus.cb=0
+	
+	

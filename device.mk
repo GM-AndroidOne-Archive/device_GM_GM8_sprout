@@ -293,11 +293,19 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
+# Enable Codec 2.0
+PRODUCT_PACKAGES += \
+    libstagefright_ccodec
+
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.1-service-qti \
-	power.qcom
-	
+    android.hardware.power@1.1-service-qti
+
+# Health HAL
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-impl \
+    android.hardware.health@2.0-service
+
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl

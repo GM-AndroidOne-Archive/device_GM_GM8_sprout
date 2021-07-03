@@ -253,10 +253,6 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libebtc
 
-# USB
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
-
 # FM
 PRODUCT_PACKAGES += \
     FM2 \

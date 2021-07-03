@@ -253,6 +253,10 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libebtc
 
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service
+
 # FM
 PRODUCT_PACKAGES += \
     FM2 \
@@ -271,7 +275,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.GM8_sprout
+    android.hardware.light@2.0-service.device
 
 # Netutils
 PRODUCT_PACKAGES += \
@@ -299,7 +303,8 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.1-service-qti
+    android.hardware.power@1.1-service-qti \
+	power.qcom
 
 # Health HAL
 PRODUCT_PACKAGES += \
@@ -334,6 +339,10 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-service \
     libsensorndkbridge
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
+	
 # TextClassifier smart selection model files
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
@@ -344,7 +353,7 @@ $(call inherit-product, build/target/product/verity.mk)
 
 # USB HAL
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
+    android.hardware.usb@1.0-service.device
 
 # VNDK
 PRODUCT_PACKAGES += \

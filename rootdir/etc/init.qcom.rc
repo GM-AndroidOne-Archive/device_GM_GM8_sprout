@@ -1136,6 +1136,11 @@ on property:vendor.gpu.available_frequencies=*
 on property:sys.boot_completed=1
     start ppd_sun
 
+on property:sys.boot_completed=1
+   # selinux nodes, hide permissive state
+   chmod 0640 /sys/fs/selinux/enforce
+   chmod 0440 /sys/fs/selinux/policy
+
 #Move the old fingerprint templates to new path
 service move_fp /vendor/bin/move_fp
     class main

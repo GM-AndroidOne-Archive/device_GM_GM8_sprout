@@ -36,4 +36,4 @@ TARGET_VENDOR_PRODUCT_NAME := GM8_sprout
 PRODUCT_BUILD_PROP_OVERRIDES += PRIVATE_BUILD_DESC="msm8937_64-user 9 OPM1.171019.011 18 release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := GM/GM8/GM8_sprout:9/OPM1.171019.011/18:user/release-keys
+BUILD_FINGERPRINT := essential/mata/mata:8.1.0/OPM1.180104.092/224:user/release-keys

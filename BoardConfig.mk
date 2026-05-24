@@ -34,7 +34,7 @@ TARGET_USES_64_BIT_BINDER := true
 TARGET_BOARD_SUFFIX := _64
 
 # Bootloader & Platform
-TARGET_BOOTLOADER_BOARD_NAME := MSM8937
+TARGET_BOOTLOADER_BOARD_NAME := QC_Reference_Phone
 TARGET_BOARD_PLATFORM := msm8937
 TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno505
@@ -76,6 +76,9 @@ AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
 
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
+
+# APEX image
+DEXPREOPT_GENERATE_APEX_IMAGE := true
 
 # Kernel
 TARGET_KERNEL_CONFIG := msm8937-perf_defconfig
@@ -160,6 +163,8 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 # HIDL
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/android.hardware.gnss@2.0-service-qti.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vendor.qti.gnss@3.0-service.xml
 
 # HWUI
 HWUI_COMPILE_FOR_PERF := true
@@ -188,10 +193,14 @@ BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_NO_RECOVERY := true
 
 # Sepolicy
-include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 #SELINUX_IGNORE_NEVERALLOWS := true
+
+# VNDK
+BOARD_VNDK_VERSION := current
+BOARD_VNDK_RUNTIME_DISABLE := true
 
 # Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true

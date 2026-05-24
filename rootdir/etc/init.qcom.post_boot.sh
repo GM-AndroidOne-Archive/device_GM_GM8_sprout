@@ -245,7 +245,7 @@ function configure_zram_parameters() {
             echo 805306368 > /sys/block/zram0/disksize
         else
             # Set Zram disk size=1GB for >=2GB Non-Go targets.
-            echo 1073741824 > /sys/block/zram0/disksize
+            echo 2684354560 > /sys/block/zram0/disksize
         fi
         mkswap /dev/block/zram0
         swapon /dev/block/zram0 -p 32758

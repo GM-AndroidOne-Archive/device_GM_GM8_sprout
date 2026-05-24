@@ -23,9 +23,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit some common PixelExperience stuff
 $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
-TARGET_BOOT_ANIMATION_RES := 720
-TARGET_BOOTANIM_LOW_RES := true
-TARGET_GAPPS_ARCH := arm64
 
 PRODUCT_BRAND := GM
 PRODUCT_DEVICE := GM8_sprout

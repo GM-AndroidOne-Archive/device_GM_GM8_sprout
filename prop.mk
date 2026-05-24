@@ -80,6 +80,10 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
     persist.sys.usb.config=mtp,adb \
     sys.usb.configfs=0
 
+    # Charger
+    PRODUCT_PRODUCT_PROPERTIES += \
+    ro.charger.enable_suspend=true	
+	
     # Bluetooth
     PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.hfp.client=1 \
@@ -99,6 +103,43 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
     persist.vendor.camera.display.lmax=1280x720 \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap \
     persist.vendor.camera.isp.clock.optmz=0 \
-    persist.camera.depth.focus.cb=0
+    persist.camera.depth.focus.cb=0 \
+	persist.camera.HAL3.enabled=1 \
+	persist.camera.eis.enable=1 \
+	persist.camera.is_mode=4 \
+	persist.camera.stats.test=5 \
+	persist.vendor.camera.HAL3.enabled=1 \
+	persist.vendor.camera.eis.enable=1 \
+	persist.vendor.camera.is_mode=4 \
+	persist.vendor.camera.stats.test=5
 	
-	
+    PRODUCT_PROPERTY_OVERRIDES += \
+	ro.vendor.qti.sys.fw.use_trim_settings=true \
+	ro.vendor.qti.sys.fw.empty_app_percent=50 \
+	ro.vendor.qti.sys.fw.trim_empty_percent=100 \
+	ro.vendor.qti.sys.fw.trim_cache_percent=100 \
+	ro.vendor.qti.sys.fw.trim_enable_memory=2147483648 \
+	ro.vendor.qti.sys.fw.bservice_enable=true \
+	ro.vendor.qti.sys.fw.bservice_limit=5 \
+	ro.vendor.qti.sys.fw.bservice_age=5000 \
+	ro.vendor.qti.core_ctl_min_cpu=2 \
+	ro.vendor.qti.core_ctl_max_cpu=4 \
+	ro.hwui.texture_cache_size=72 \
+	ro.hwui.layer_cache_size=48 \
+	ro.hwui.r_buffer_cache_size=8 \
+	ro.hwui.path_cache_size=32 \
+	ro.hwui.gradient_cache_size=1 \
+	ro.hwui.drop_shadow_cache_size=6 \
+	ro.hwui.texture_cache_flushrate=0.4 \
+	ro.hwui.text_small_cache_width=1024 \
+	ro.hwui.text_small_cache_height=1024 \
+	ro.hwui.text_large_cache_width=2048 \
+	ro.hwui.text_large_cache_height=1024 \
+	vendor.gralloc.enable_fb_ubwc=1 \
+	vendor.display.disable_skip_validate=1 \
+	sdm.debug.disable_skip_validate=1 \
+	debug.sf.enable_hwc_vds=1 \
+	ro.opengles.version=196609 \
+	debug.sf.latch_unsignaled=1 \
+	debug.gralloc.enable_fb_ubwc=1
+

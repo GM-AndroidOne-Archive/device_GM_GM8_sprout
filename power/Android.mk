@@ -9,7 +9,7 @@ LOCAL_SRC_FILES := power.c metadata-parser.c utils.c list.c hint-data.c powerhin
 LOCAL_C_INCLUDES := external/libxml2/include \
                     external/icu/icu4c/source/common
 
-LOCAL_SRC_FILES += power-8953.c
+LOCAL_SRC_FILES += power-8937.c
 
 ifeq ($(TARGET_USES_INTERACTION_BOOST),true)
     LOCAL_CFLAGS += -DINTERACTION_BOOST

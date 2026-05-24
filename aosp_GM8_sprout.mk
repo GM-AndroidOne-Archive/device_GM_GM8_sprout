@@ -21,8 +21,13 @@ $(call inherit-product, device/GM/GM8_sprout/device.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common PixelExperience stuff
+# Inherit some common Android One Experience stuff
 $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+
+## Android One Experience required flags
+# if your build is ready to release:
+CUSTOM_BUILD_TYPE := prefinal
+PRODUCT_CUSTOM_MODEL := GM8
 
 PRODUCT_BRAND := GM
 PRODUCT_DEVICE := GM8_sprout
@@ -30,10 +35,6 @@ PRODUCT_MANUFACTURER := General Mobile
 PRODUCT_NAME := aosp_GM8_sprout
 PRODUCT_MODEL := GM 8
 
-PRODUCT_GMS_CLIENTID_BASE := android-gm
 TARGET_VENDOR := gm
 TARGET_VENDOR_PRODUCT_NAME := GM8_sprout
 PRODUCT_BUILD_PROP_OVERRIDES += PRIVATE_BUILD_DESC="msm8937_64-user 9 OPM1.171019.011 18 release-keys"
-
-# Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := essential/mata/mata:8.1.0/OPM1.180104.092/224:user/release-keys

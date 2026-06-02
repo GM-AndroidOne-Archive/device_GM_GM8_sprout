@@ -26,7 +26,7 @@ $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
 ## Android One Experience required flags
 # if your build is ready to release:
-CUSTOM_BUILD_TYPE := prefinal
+CUSTOM_BUILD_TYPE := Testing
 PRODUCT_CUSTOM_MODEL := GM8
 
 PRODUCT_BRAND := GM
